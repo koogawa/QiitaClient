@@ -19,9 +19,13 @@ class MainActivity : AppCompatActivity() {
 
         val listView : ListView = findViewById(R.id.list_view) as ListView
         listView.adapter = listAdapter
+        listView.setOnItemClickListener { adapterView, view, position, id ->
+            var article = listAdapter.articles[position]
+            ArticleActivity.intent(this, article).let { startActivity(it)}
+        }
     }
 
     private fun dummyArticle(title: String, userName: String): Article = Article("", title = title,
-            url = "https://koglinglang.org/",
+            url = "https://google.com/",
             user = User(id = "", name = userName, profileImageUrl = ""))
 }
