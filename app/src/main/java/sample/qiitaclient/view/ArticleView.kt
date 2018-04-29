@@ -26,15 +26,20 @@ class ArticleView : FrameLayout {
                 defStyleAttr: Int,
                 defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
-    var profileImageView: ImageView? = null
-    var titleTextView: TextView? = null
-    var userNameTextView: TextView? = null
+    val profileImageView: ImageView by lazy {
+        findViewById(R.id.profile_image_view) as ImageView
+    }
+
+    val titleTextView: TextView by lazy {
+        findViewById(R.id.title_text_view) as TextView
+    }
+
+    val userNameTextView: TextView by lazy {
+        findViewById(R.id.user_name_text_view) as TextView
+    }
 
     init {
         LayoutInflater.from(context).inflate(R.layout.view_article, this)
-        profileImageView = findViewById(R.id.profile_image_view) as ImageView
-        titleTextView = findViewById(R.id.title_text_view) as TextView
-        userNameTextView = findViewById(R.id.user_name_text_view) as TextView
     }
 
     fun setArticle(article: Article) {
