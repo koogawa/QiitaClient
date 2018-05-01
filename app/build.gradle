@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
@@ -21,6 +22,9 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
         // test
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -49,7 +53,12 @@ dependencies {
 
 
     compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    kapt 'com.android.databinding:compiler:3.1.2'
 }
 repositories {
     mavenCentral()
+}
+kapt {
+    generateStubs = true
 }
