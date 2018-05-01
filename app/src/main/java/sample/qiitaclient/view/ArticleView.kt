@@ -17,6 +17,9 @@ import sample.qiitaclient.bindView
 import sample.qiitaclient.databinding.ViewArticleBinding
 import sample.qiitaclient.model.Article
 
+@BindingMethods(BindingMethod(type = Article::class,
+        attribute = "bind:article",
+        method = "setArticle"))
 class ArticleView : FrameLayout {
     constructor(context: Context?) : super(context)
 
